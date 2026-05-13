@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PROTX PAINTERS LLC // Premium Floor Coatings · Concrete Polishing · Exterior Painting</title>
+<title>PROTX COATINGS LLC // Premium Floor Coatings · Concrete Polishing · Exterior Painting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -229,16 +229,16 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(10, 10, 10, 0.92);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid var(--border-bright);
+    border: 1px solid var(--red);
     border-radius: 100px;
     padding: 0.7rem 1.8rem;
     display: flex;
     align-items: center;
     gap: 1.8rem;
-    box-shadow: 0 8px 32px rgba(10, 10, 10, 0.08);
+    box-shadow: 0 8px 32px rgba(10, 10, 10, 0.4), 0 0 30px rgba(200, 37, 44, 0.25);
     max-width: 95%;
   }
 
@@ -247,14 +247,14 @@
     font-weight: 700;
     font-size: 1.3rem;
     letter-spacing: 1px;
-    color: var(--black);
+    color: var(--white);
     text-transform: uppercase;
     display: flex;
     align-items: baseline;
     line-height: 1;
   }
 
-  .logo .pro { color: var(--black); }
+  .logo .pro { color: var(--white); }
 
   .logo .x-wrap { position: relative; display: inline-block; }
 
@@ -273,7 +273,7 @@
   }
 
   .logo .sub {
-    color: var(--black);
+    color: var(--white);
     margin-left: 0.4rem;
     font-size: 0.85rem;
     letter-spacing: 2px;
@@ -288,7 +288,7 @@
   }
 
   .nav-links a {
-    color: var(--grey-text);
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.78rem;
@@ -298,7 +298,7 @@
     transition: color 0.3s;
   }
 
-  .nav-links a:hover { color: var(--red); }
+  .nav-links a:hover { color: var(--red-bright); }
 
   .nav-cta {
     background: var(--red);
@@ -325,6 +325,26 @@
     padding: 8rem 2rem 4rem;
     z-index: 2;
     overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 20%, rgba(230, 57, 70, 0.25), transparent 60%),
+      radial-gradient(ellipse 50% 50% at 10% 90%, rgba(200, 37, 44, 0.2), transparent 60%),
+      linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    color: var(--white);
+    border-bottom: 4px solid var(--red);
+    box-shadow: 0 0 60px rgba(200, 37, 44, 0.3);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(230, 57, 70, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230, 57, 70, 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent 80%);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .hero::before {
@@ -334,7 +354,7 @@
     right: -100px;
     width: 50%;
     height: 100%;
-    background: linear-gradient(135deg, transparent 30%, rgba(200, 37, 44, 0.04) 50%, transparent 70%);
+    background: linear-gradient(135deg, transparent 30%, rgba(230, 57, 70, 0.18) 50%, transparent 70%);
     z-index: 0;
     transform: skewX(-15deg);
   }
@@ -356,27 +376,27 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: var(--white);
-    color: var(--red);
+    background: var(--red);
+    color: var(--white);
     padding: 0.5rem 1.2rem;
     border-radius: 100px;
     font-size: 0.78rem;
     font-weight: 700;
     margin-bottom: 1.8rem;
-    border: 1px solid var(--red);
+    border: 1px solid var(--red-bright);
     letter-spacing: 2px;
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     animation: slideInDown 0.8s ease-out;
-    box-shadow: 0 4px 15px var(--red-glow);
+    box-shadow: 0 4px 25px rgba(230, 57, 70, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
   .pulse-dot {
     width: 8px;
     height: 8px;
-    background: var(--red);
+    background: var(--white);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--red);
+    box-shadow: 0 0 10px var(--white);
     animation: pulse 2s infinite;
   }
 
@@ -394,13 +414,15 @@
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     animation: slideInUp 1s ease-out 0.2s both;
-    color: var(--black);
+    color: var(--white);
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   }
 
   .hero h1 .accent {
-    color: var(--red);
+    color: var(--red-bright);
     position: relative;
     display: inline-block;
+    text-shadow: 0 0 30px rgba(230, 57, 70, 0.6);
   }
 
   .hero h1 .accent::after {
@@ -418,7 +440,7 @@
     font-size: 1.15rem;
     max-width: 540px;
     margin-bottom: 2.5rem;
-    color: var(--grey-text);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.7;
     animation: slideInUp 1s ease-out 0.4s both;
     font-weight: 400;
@@ -499,7 +521,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--grey-text);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.82rem;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
@@ -1308,12 +1330,13 @@
   }
 
   footer {
-    background: var(--cream);
-    color: var(--black);
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: var(--white);
     padding: 4rem 2rem 2rem;
     position: relative;
     z-index: 2;
     border-top: 4px solid var(--red);
+    box-shadow: 0 -10px 40px rgba(200, 37, 44, 0.15);
   }
 
   .footer-grid {
@@ -1328,7 +1351,7 @@
   .footer-brand .logo { margin-bottom: 1.2rem; }
 
   .footer-brand p {
-    color: var(--grey-text);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.7;
     margin-bottom: 1.5rem;
     font-size: 0.92rem;
@@ -1346,7 +1369,7 @@
   }
 
   .footer-email {
-    color: var(--grey-text);
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     font-size: 0.92rem;
     display: inline-block;
@@ -1395,7 +1418,7 @@
 
   .footer-col a {
     display: block;
-    color: var(--grey-text);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     padding: 0.35rem 0;
     transition: all 0.3s;
@@ -1411,12 +1434,12 @@
     max-width: 1300px;
     margin: 0 auto;
     padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
-    color: var(--grey-mid);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.82rem;
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
@@ -1444,16 +1467,16 @@
   }
 
   .chatbot-tooltip {
-    background: var(--white);
-    color: var(--black);
-    padding: 0.7rem 1.1rem;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.8rem 1.2rem;
     border-radius: 14px 14px 4px 14px;
-    border: 1px solid var(--red);
-    font-size: 0.85rem;
+    border: 2px solid var(--red);
+    font-size: 0.88rem;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 0.5px;
-    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.15), 0 0 20px var(--red-glow);
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.35), 0 0 25px rgba(200, 37, 44, 0.5);
     white-space: nowrap;
     position: relative;
     animation: tooltipBob 3s ease-in-out infinite, tooltipAppear 0.5s ease-out 1s both;
@@ -1468,18 +1491,19 @@
     transform: translateY(-50%) rotate(45deg);
     width: 12px;
     height: 12px;
-    background: var(--white);
-    border-right: 1px solid var(--red);
-    border-top: 1px solid var(--red);
+    background: var(--black);
+    border-right: 2px solid var(--red);
+    border-top: 2px solid var(--red);
   }
 
   .chatbot-tooltip strong {
-    color: var(--red);
+    color: var(--red-bright);
     display: block;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.82rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 0.15rem;
   }
 
   @keyframes tooltipBob {
@@ -1501,10 +1525,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--red);
+    border: 3px solid var(--red);
     cursor: pointer;
     font-size: 1.5rem;
-    box-shadow: 0 0 40px var(--red-glow), 0 12px 30px rgba(10, 10, 10, 0.25);
+    box-shadow: 0 0 50px rgba(230, 57, 70, 0.65), 0 12px 30px rgba(10, 10, 10, 0.4);
     transition: all 0.3s;
     position: relative;
     flex-shrink: 0;
@@ -1512,7 +1536,8 @@
 
   .chatbot-toggle:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 60px var(--red-glow);
+    box-shadow: 0 0 70px rgba(230, 57, 70, 0.8), 0 15px 35px rgba(10, 10, 10, 0.5);
+    border-color: var(--red-bright);
   }
 
   .chatbot-toggle .badge {
@@ -1546,13 +1571,14 @@
   .phone-tooltip {
     background: var(--red);
     color: var(--white);
-    padding: 0.7rem 1.1rem;
+    padding: 0.8rem 1.2rem;
     border-radius: 14px 14px 4px 14px;
-    font-size: 0.85rem;
+    border: 2px solid var(--white);
+    font-size: 0.88rem;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 0.5px;
-    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.2), 0 0 25px var(--red-glow);
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.3), 0 0 30px rgba(230, 57, 70, 0.6);
     white-space: nowrap;
     position: relative;
     animation: tooltipBob 3s ease-in-out infinite, tooltipAppear 0.5s ease-out 1.4s both;
@@ -1563,21 +1589,23 @@
   .phone-tooltip::before {
     content: '';
     position: absolute;
-    right: -6px;
+    right: -7px;
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
     width: 12px;
     height: 12px;
     background: var(--red);
+    border-right: 2px solid var(--white);
+    border-top: 2px solid var(--white);
   }
 
   .phone-tooltip strong {
     display: block;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.82rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: 0.95;
+    margin-bottom: 0.15rem;
   }
 
   .sticky-phone {
@@ -2136,7 +2164,7 @@
 
 <nav>
   <div class="logo">
-    <span class="pro">PROT</span><span class="x-wrap"><span class="x">X</span></span><span class="sub">PAINTERS</span>
+    <span class="pro">PROT</span><span class="x-wrap"><span class="x">X</span></span><span class="sub">COATINGS</span>
   </div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -2434,7 +2462,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo">
-        <span class="pro">PROT</span><span class="x-wrap"><span class="x">X</span></span><span class="sub">PAINTERS</span>
+        <span class="pro">PROT</span><span class="x-wrap"><span class="x">X</span></span><span class="sub">COATINGS</span>
       </div>
       <p>Premium floor coatings, concrete polishing, and exterior painting. Licensed, insured, and locally owned in the DFW area.</p>
       <a href="tel:4696501955" class="footer-phone">(469) 650-1955</a>
@@ -2470,7 +2498,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 ProTX Painters LLC</span>
+    <span>© 2026 ProTX Coatings LLC</span>
     <span>Licensed · Insured · DFW Local</span>
   </div>
 </footer>
@@ -2482,8 +2510,8 @@
     <div class="chatbot-tooltip" id="chatbotTooltip">
       <button class="tooltip-dismiss" onclick="dismissTooltip('chatbotTooltip', event)" aria-label="Dismiss">×</button>
       <span onclick="toggleChat()" style="cursor: pointer; display: block;">
-        <strong>Got Questions?</strong>
-        Chat with us 24/7 💬
+        <strong>👋 Need a quote?</strong>
+        Ask me anything — I reply instantly!
       </span>
     </div>
     <button class="chatbot-toggle" onclick="toggleChat()" aria-label="Open chat">
@@ -2497,8 +2525,8 @@
     <div class="phone-tooltip" id="phoneTooltip">
       <button class="tooltip-dismiss" onclick="dismissTooltip('phoneTooltip', event)" aria-label="Dismiss">×</button>
       <a href="tel:4696501955" style="color: inherit; text-decoration: none; display: block;">
-        <strong>Free Quote in 24hrs</strong>
-        Tap to call (469) 650-1955 📞
+        <strong>📞 Free Quote in 24 Hours</strong>
+        Tap to call (469) 650-1955
       </a>
     </div>
     <a href="tel:4696501955" class="sticky-phone" aria-label="Call us">📞</a>
@@ -2519,7 +2547,7 @@
     <button class="chatbot-close" onclick="toggleChat()" aria-label="Close chat" title="Close">×</button>
   </div>
   <div class="chatbot-messages" id="messages">
-    <div class="bot-msg">👋 Hey there! I'm the PROTX Painters assistant. What project are you thinking about?</div>
+    <div class="bot-msg">👋 Hey there! I'm the PROTX Coatings assistant. What project are you thinking about?</div>
   </div>
   <div class="quick-replies" id="quickReplies">
     <button class="quick-reply" onclick="quickReply('Garage floor coating')">Garage floor</button>
