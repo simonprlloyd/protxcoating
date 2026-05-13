@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROTX PAINTERS LLC // Premium Floor Coatings · Concrete Polishing · Exterior Painting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #ffffff;
+    --cream: #fafaf8;
+    --off-white: #f5f5f2;
+    --bone: #ebebe7;
+    --black: #0a0a0a;
+    --black-soft: #1a1a1a;
+    --black-card: #232323;
+    --red: #c8252c;
+    --red-bright: #e63946;
+    --red-deep: #9e1d23;
+    --red-glow: rgba(200, 37, 44, 0.35);
+    --red-soft: rgba(200, 37, 44, 0.08);
+    --grey-light: #e8e8e4;
+    --grey-mid: #888884;
+    --grey-text: #4a4a48;
+    --border: rgba(10, 10, 10, 0.08);
+    --border-bright: rgba(10, 10, 10, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* === ANIMATED BACKGROUND LAYERS === */
+  
+  /* Layer 1: Mesh background */
+  .mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(200, 37, 44, 0.06), transparent),
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(200, 37, 44, 0.03), transparent),
+      var(--white);
+  }
+
+  /* Layer 2: Animated drifting orbs */
+  .orb-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: orbFloat 20s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(200, 37, 44, 0.15);
+    top: -200px;
+    right: -100px;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(200, 37, 44, 0.1);
+    bottom: -100px;
+    left: -100px;
+    animation-delay: -7s;
+  }
+
+  .orb-3 {
+    width: 350px;
+    height: 350px;
+    background: rgba(230, 57, 70, 0.08);
+    top: 50%;
+    left: 40%;
+    animation-delay: -14s;
+  }
+
+  .orb-4 {
+    width: 300px;
+    height: 300px;
+    background: rgba(200, 37, 44, 0.06);
+    top: 30%;
+    right: 30%;
+    animation-delay: -3s;
+  }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(80px, -60px) scale(1.15); }
+    50% { transform: translate(-40px, 100px) scale(0.9); }
+    75% { transform: translate(60px, 40px) scale(1.05); }
+  }
+
+  /* Layer 3: Floating particles */
+  .particles {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px var(--red-glow);
+    animation: particleFloat 15s linear infinite;
+  }
+
+  .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 18s; }
+  .particle:nth-child(2) { left: 25%; animation-delay: -3s; animation-duration: 22s; width: 3px; height: 3px; }
+  .particle:nth-child(3) { left: 40%; animation-delay: -6s; animation-duration: 16s; }
+  .particle:nth-child(4) { left: 55%; animation-delay: -9s; animation-duration: 20s; width: 5px; height: 5px; }
+  .particle:nth-child(5) { left: 70%; animation-delay: -2s; animation-duration: 24s; width: 3px; height: 3px; }
+  .particle:nth-child(6) { left: 85%; animation-delay: -5s; animation-duration: 19s; }
+  .particle:nth-child(7) { left: 15%; animation-delay: -8s; animation-duration: 21s; width: 3px; height: 3px; }
+  .particle:nth-child(8) { left: 50%; animation-delay: -11s; animation-duration: 17s; }
+  .particle:nth-child(9) { left: 75%; animation-delay: -14s; animation-duration: 23s; width: 5px; height: 5px; }
+  .particle:nth-child(10) { left: 90%; animation-delay: -1s; animation-duration: 18s; width: 3px; height: 3px; }
+  .particle:nth-child(11) { left: 30%; animation-delay: -4s; animation-duration: 25s; }
+  .particle:nth-child(12) { left: 60%; animation-delay: -7s; animation-duration: 16s; width: 4px; height: 4px; }
+  .particle:nth-child(13) { left: 5%; animation-delay: -10s; animation-duration: 22s; width: 3px; height: 3px; }
+  .particle:nth-child(14) { left: 95%; animation-delay: -13s; animation-duration: 19s; }
+  .particle:nth-child(15) { left: 45%; animation-delay: -16s; animation-duration: 24s; width: 5px; height: 5px; }
+
+  @keyframes particleFloat {
+    0% {
+      bottom: -10px;
+      opacity: 0;
+      transform: translateX(0) scale(0.5);
+    }
+    10% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateX(40px) scale(1);
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      bottom: 110vh;
+      opacity: 0;
+      transform: translateX(-30px) scale(0.5);
+    }
+  }
+
+  /* Layer 4: Grid */
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(10, 10, 10, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 10, 10, 0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black, transparent 80%);
+    opacity: 0.5;
+  }
+
+  /* Layer 5: Scan line */
+  .scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+    z-index: 2;
+    pointer-events: none;
+    animation: scan 10s linear infinite;
+    box-shadow: 0 0 15px var(--red-glow);
+  }
+
+  @keyframes scan {
+    0% { top: -2px; opacity: 0; }
+    5% { opacity: 0.5; }
+    95% { opacity: 0.5; }
+    100% { top: 100vh; opacity: 0; }
+  }
+
+  /* Layer 6: Cursor follower glow (subtle) */
+  .cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200, 37, 44, 0.08), transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out;
+    filter: blur(20px);
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--border-bright);
+    border-radius: 100px;
+    padding: 0.7rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    box-shadow: 0 8px 32px rgba(10, 10, 10, 0.08);
+    max-width: 95%;
+  }
+
+  .logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: var(--black);
+    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+    line-height: 1;
+  }
+
+  .logo .pro { color: var(--black); }
+
+  .logo .x-wrap { position: relative; display: inline-block; }
+
+  .logo .x { color: var(--red); position: relative; }
+
+  .logo .x::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    width: 60%;
+    height: 2px;
+    background: var(--red);
+    transform: rotate(45deg);
+    transform-origin: right;
+  }
+
+  .logo .sub {
+    color: var(--black);
+    margin-left: 0.4rem;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--grey-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.55rem 1.3rem;
+    border-radius: 100px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border: 1px solid var(--red);
+    box-shadow: 0 4px 15px var(--red-glow);
+    transition: all 0.3s;
+  }
+
+  .nav-cta:hover {
+    background: var(--red-bright);
+    box-shadow: 0 6px 20px var(--red-glow);
+    transform: translateY(-1px);
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    padding: 8rem 2rem 4rem;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 30%, rgba(200, 37, 44, 0.04) 50%, transparent 70%);
+    z-index: 0;
+    transform: skewX(-15deg);
+  }
+
+  .hero-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 78vh;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--white);
+    color: var(--red);
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+    border: 1px solid var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    animation: slideInDown 0.8s ease-out;
+    box-shadow: 0 4px 15px var(--red-glow);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--red);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--red); }
+    50% { opacity: 0.5; transform: scale(1.3); box-shadow: 0 0 20px var(--red); }
+  }
+
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    line-height: 0.92;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    animation: slideInUp 1s ease-out 0.2s both;
+    color: var(--black);
+  }
+
+  .hero h1 .accent {
+    color: var(--red);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero h1 .accent::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--red);
+    box-shadow: 0 0 15px var(--red-glow);
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    color: var(--grey-text);
+    line-height: 1.7;
+    animation: slideInUp 1s ease-out 0.4s both;
+    font-weight: 400;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    animation: slideInUp 1s ease-out 0.6s both;
+  }
+
+  .btn-primary, .btn-secondary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.1rem 2.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    overflow: hidden;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    border: 1px solid var(--red);
+    box-shadow: 0 8px 25px var(--red-glow);
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.6s;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 12px 35px var(--red-glow);
+    transform: translateY(-2px);
+    background: var(--red-bright);
+  }
+
+  .btn-primary:hover::before { left: 100%; }
+
+  .btn-secondary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+  }
+
+  .btn-secondary:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    animation: slideInUp 1s ease-out 0.8s both;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--grey-text);
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .trust-item .check {
+    width: 20px;
+    height: 20px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 800;
+    box-shadow: 0 2px 8px var(--red-glow);
+  }
+
+  /* === HERO VISUAL === */
+  .hero-visual {
+    position: relative;
+    height: 520px;
+    animation: slideInRight 1s ease-out 0.8s both;
+  }
+
+  .service-stack {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .service-tile {
+    background: var(--white);
+    border: 1px solid var(--border-bright);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.2rem;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.06);
+  }
+
+  .service-tile::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--red);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s;
+  }
+
+  .service-tile:hover {
+    transform: translateX(10px);
+    border-color: var(--red);
+    box-shadow: 0 20px 50px rgba(10, 10, 10, 0.12), 0 0 30px var(--red-glow);
+  }
+
+  .service-tile:hover::before { transform: scaleY(1); }
+
+  .service-tile-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--red);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 6px 18px var(--red-glow);
+  }
+
+  .service-tile-content h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .service-tile-content p {
+    font-size: 0.85rem;
+    color: var(--grey-text);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .service-tile-arrow {
+    color: var(--red);
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+
+  .service-tile:hover .service-tile-arrow { transform: translateX(8px); }
+
+  /* === TICKER === */
+  .ticker {
+    background: var(--red);
+    color: var(--white);
+    padding: 1.3rem 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+  }
+
+  .ticker::before, .ticker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .ticker::before { left: 0; background: linear-gradient(90deg, var(--red), transparent); }
+  .ticker::after { right: 0; background: linear-gradient(-90deg, var(--red), transparent); }
+
+  .ticker-track {
+    display: flex;
+    animation: ticker 35s linear infinite;
+    gap: 3rem;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .ticker-item {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  .ticker-item::after {
+    content: '✕';
+    font-size: 0.9rem;
+    color: var(--white);
+    opacity: 0.6;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* === SECTIONS === */
+  .section-header {
+    max-width: 1300px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--red);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1.3rem;
+    background: var(--white);
+    border-radius: 100px;
+    border: 1px solid var(--red);
+    box-shadow: 0 4px 12px var(--red-glow);
+  }
+
+  .section-tag::before { content: '✕'; color: var(--red); }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -1px;
+    max-width: 950px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .section-title .accent { color: var(--red); }
+
+  .section-sub {
+    color: var(--grey-text);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .services {
+    padding: 8rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .services-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.04);
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--red-soft), transparent);
+    transition: left 0.6s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--red);
+    box-shadow: 0 30px 60px rgba(10, 10, 10, 0.12), 0 0 40px var(--red-glow);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover::after { left: 100%; }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--red);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s;
+    box-shadow: 0 8px 20px var(--red-glow);
+  }
+
+  .service-card:hover .service-icon {
+    transform: rotate(-8deg) scale(1.1);
+    box-shadow: 0 12px 30px var(--red-glow);
+  }
+
+  .service-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .service-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .service-card p {
+    color: var(--grey-text);
+    line-height: 1.6;
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .service-features { list-style: none; margin-bottom: 1.5rem; }
+
+  .service-features li {
+    color: var(--grey-text);
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .service-features li::before {
+    content: '▸';
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .service-card:hover .service-link {
+    gap: 0.8rem;
+    color: var(--red-deep);
+  }
+
+  .dual-section {
+    padding: 8rem 2rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: var(--off-white);
+  }
+
+  .dual-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .dual-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(10, 10, 10, 0.06);
+  }
+
+  .dual-card.residential { border-top: 4px solid var(--red); }
+  .dual-card.commercial { border-top: 4px solid var(--black); }
+
+  .dual-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: var(--red);
+    opacity: 0.04;
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+
+  .dual-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(10, 10, 10, 0.12), 0 0 40px var(--red-glow);
+    border-color: var(--red);
+  }
+
+  .dual-tag {
+    display: inline-block;
+    background: var(--red-soft);
+    color: var(--red);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--red);
+  }
+
+  .dual-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 1rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+
+  .dual-card p {
+    color: var(--grey-text);
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  .dual-list { list-style: none; margin-bottom: 2rem; }
+
+  .dual-list li {
+    color: var(--black);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .dual-list li:last-child { border-bottom: none; }
+
+  .dual-list li::before {
+    content: '✓';
+    width: 22px;
+    height: 22px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px var(--red-glow);
+  }
+
+  .why-us {
+    padding: 8rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .why-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .why-left h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin: 1rem 0 1.5rem;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .why-left h2 .accent { color: var(--red); }
+
+  .why-left p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--grey-text);
+    margin-bottom: 2.5rem;
+    max-width: 460px;
+    font-weight: 400;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-box {
+    background: var(--white);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(10, 10, 10, 0.04);
+  }
+
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--red);
+  }
+
+  .stat-box .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .stat-box .label {
+    font-size: 0.78rem;
+    color: var(--grey-text);
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .why-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .why-feature {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+    align-items: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(10, 10, 10, 0.04);
+  }
+
+  .why-feature:hover {
+    border-color: var(--red);
+    transform: translateX(10px);
+    box-shadow: 0 15px 35px rgba(10, 10, 10, 0.1), 0 0 20px var(--red-glow);
+  }
+
+  .why-feature .num {
+    width: 50px;
+    height: 50px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 6px 15px var(--red-glow);
+  }
+
+  .why-feature h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .why-feature p {
+    font-size: 0.9rem;
+    color: var(--grey-text);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .testimonials {
+    padding: 8rem 2rem;
+    position: relative;
+    z-index: 2;
+    background: var(--off-white);
+  }
+
+  .testimonial-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .testimonial {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    position: relative;
+    transition: all 0.4s;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.05);
+  }
+
+  .testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 7rem;
+    color: var(--red);
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  .testimonial:hover {
+    transform: translateY(-8px);
+    border-color: var(--red);
+    box-shadow: 0 30px 60px rgba(10, 10, 10, 0.12), 0 0 30px var(--red-glow);
+  }
+
+  .stars {
+    color: var(--red);
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 3px;
+  }
+
+  .testimonial p {
+    color: var(--black);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 800;
+    box-shadow: 0 4px 12px var(--red-glow);
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .testimonial-loc {
+    color: var(--grey-mid);
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .cta-section {
+    padding: 8rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--red-deep) 0%, var(--red) 100%);
+    border-radius: 20px;
+    padding: 5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(200, 37, 44, 0.25), 0 0 60px var(--red-glow);
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 50px,
+      rgba(255, 255, 255, 0.05) 50px,
+      rgba(255, 255, 255, 0.05) 51px
+    );
+  }
+
+  .cta-box > * { position: relative; z-index: 2; }
+
+  .cta-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 0.5rem 1.3rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .cta-box h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin: 0 0 1.5rem;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .cta-box p {
+    color: var(--white);
+    opacity: 0.95;
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .cta-box .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--white);
+    color: var(--red);
+    padding: 1.4rem 3rem;
+    font-size: 1.05rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    border: 2px solid var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .cta-box .btn-cta:hover {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+    transform: translateY(-3px);
+  }
+
+  footer {
+    background: var(--cream);
+    color: var(--black);
+    padding: 4rem 2rem 2rem;
+    position: relative;
+    z-index: 2;
+    border-top: 4px solid var(--red);
+  }
+
+  .footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand .logo { margin-bottom: 1.2rem; }
+
+  .footer-brand p {
+    color: var(--grey-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+    font-weight: 400;
+  }
+
+  .footer-phone {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--red);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-email {
+    color: var(--grey-text);
+    text-decoration: none;
+    font-size: 0.92rem;
+    display: inline-block;
+  }
+
+  .footer-email:hover { color: var(--red); }
+
+  .footer-social {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+
+  .footer-social a {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+  }
+
+  .footer-social a:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--red-glow);
+  }
+
+  .footer-col h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 1rem;
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--grey-text);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    transition: all 0.3s;
+    font-size: 0.88rem;
+  }
+
+  .footer-col a:hover {
+    color: var(--red);
+    padding-left: 0.5rem;
+  }
+
+  .footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--grey-mid);
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* === FLOATING ACTION STACK (right side) === */
+  .float-stack {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 98;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  /* === CHATBOT TOGGLE (TOP) === */
+  .chatbot-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .chatbot-tooltip {
+    background: var(--white);
+    color: var(--black);
+    padding: 0.7rem 1.1rem;
+    border-radius: 14px 14px 4px 14px;
+    border: 1px solid var(--red);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.15), 0 0 20px var(--red-glow);
+    white-space: nowrap;
+    position: relative;
+    animation: tooltipBob 3s ease-in-out infinite, tooltipAppear 0.5s ease-out 1s both;
+    cursor: pointer;
+  }
+
+  .chatbot-tooltip::before {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: var(--white);
+    border-right: 1px solid var(--red);
+    border-top: 1px solid var(--red);
+  }
+
+  .chatbot-tooltip strong {
+    color: var(--red);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @keyframes tooltipBob {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
+  }
+
+  @keyframes tooltipAppear {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .chatbot-toggle {
+    background: var(--black);
+    color: var(--white);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--red);
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 0 40px var(--red-glow), 0 12px 30px rgba(10, 10, 10, 0.25);
+    transition: all 0.3s;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 60px var(--red-glow);
+  }
+
+  .chatbot-toggle .badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 10px var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 800;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  /* === STICKY PHONE (BOTTOM, under chatbot) === */
+  .phone-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .phone-tooltip {
+    background: var(--red);
+    color: var(--white);
+    padding: 0.7rem 1.1rem;
+    border-radius: 14px 14px 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.2), 0 0 25px var(--red-glow);
+    white-space: nowrap;
+    position: relative;
+    animation: tooltipBob 3s ease-in-out infinite, tooltipAppear 0.5s ease-out 1.4s both;
+    animation-delay: -1.5s, 1.4s;
+    cursor: pointer;
+  }
+
+  .phone-tooltip::before {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: var(--red);
+  }
+
+  .phone-tooltip strong {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.95;
+  }
+
+  .sticky-phone {
+    background: var(--red);
+    color: var(--white);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.7rem;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 40px var(--red-glow), 0 12px 30px rgba(10, 10, 10, 0.25);
+    transition: all 0.3s;
+    animation: bounce 3s ease-in-out infinite;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .sticky-phone::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    animation: ringPulse 2s ease-out infinite;
+  }
+
+  .sticky-phone::after {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 1px solid var(--red);
+    animation: ringPulse 2s ease-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .sticky-phone:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 60px var(--red-glow), 0 15px 40px rgba(10, 10, 10, 0.3);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes ringPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+
+  /* === CHATBOT WINDOW === */
+  .chatbot-window {
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    z-index: 99;
+    width: 370px;
+    max-width: calc(100vw - 3rem);
+    height: 540px;
+    max-height: calc(100vh - 8rem);
+    background: var(--white);
+    border: 1px solid var(--red);
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(10, 10, 10, 0.25), 0 0 60px var(--red-glow);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .chatbot-window.open {
+    display: flex;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .chatbot-header {
+    background: var(--red);
+    color: var(--white);
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chatbot-avatar {
+    width: 42px;
+    height: 42px;
+    background: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    position: relative;
+  }
+
+  .chatbot-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background: #4ade80;
+    border: 2px solid var(--red);
+    border-radius: 50%;
+  }
+
+  .chatbot-header h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .chatbot-header span {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .chatbot-close {
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    font-weight: 600;
+    padding: 0;
+  }
+
+  .chatbot-close:hover { 
+    background: var(--white);
+    color: var(--red);
+    transform: rotate(90deg);
+    border-color: var(--white);
+  }
+
+  .chatbot-minimize {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    font-weight: 600;
+    padding: 0;
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+
+  .chatbot-minimize:hover {
+    background: var(--white);
+    color: var(--red);
+    border-color: var(--white);
+  }
+
+  .chatbot-back-link {
+    background: var(--off-white);
+    padding: 0.7rem 1.2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .chatbot-back-link button {
+    background: transparent;
+    border: none;
+    color: var(--red);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+
+  .chatbot-back-link button:hover {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  .tooltip-dismiss {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 22px;
+    height: 22px;
+    background: var(--black);
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0;
+    line-height: 1;
+    transition: all 0.2s;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .tooltip-dismiss:hover {
+    background: var(--red);
+    transform: scale(1.15);
+  }
+
+  .tooltip-hidden {
+    display: none !important;
+  }
+
+  .chatbot-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 98;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .chatbot-backdrop.show {
+    display: block;
+    opacity: 1;
+  }
+
+  .chatbot-messages {
+    flex: 1;
+    padding: 1.2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: var(--off-white);
+  }
+
+  .bot-msg, .user-msg {
+    max-width: 80%;
+    padding: 0.8rem 1.1rem;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: msgIn 0.3s ease-out;
+    font-weight: 400;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bot-msg {
+    background: var(--white);
+    color: var(--black);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .user-msg {
+    background: var(--red);
+    color: var(--white);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+
+  .quick-replies {
+    padding: 0 1.2rem 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    background: var(--off-white);
+  }
+
+  .quick-reply {
+    background: var(--white);
+    color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .quick-reply:hover {
+    background: var(--red);
+    color: var(--white);
+    box-shadow: 0 4px 12px var(--red-glow);
+  }
+
+  .chatbot-input {
+    padding: 1rem 1.2rem;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .chatbot-input input {
+    flex: 1;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.75rem 1.1rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    color: var(--black);
+    transition: all 0.3s;
+  }
+
+  .chatbot-input input:focus { 
+    border-color: var(--red);
+    box-shadow: 0 0 15px var(--red-glow);
+  }
+
+  .chatbot-input input::placeholder { color: var(--grey-mid); }
+
+  .chatbot-input button {
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    font-weight: 700;
+    box-shadow: 0 4px 12px var(--red-glow);
+  }
+
+  .chatbot-input button:hover { 
+    transform: scale(1.1);
+    background: var(--red-bright);
+  }
+
+  @keyframes slideInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 968px) {
+    .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { 
+      height: auto; 
+      min-height: 380px;
+      margin-top: 1rem;
+    }
+    .service-stack {
+      position: relative;
+      inset: auto;
+    }
+    .why-grid, .dual-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    nav { padding: 0.6rem 1rem; gap: 0.8rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.72rem; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links li:not(:last-child) { display: none; }
+    nav { top: 1rem; padding: 0.5rem 1rem; }
+    .logo { font-size: 1.05rem; }
+    .logo .sub { font-size: 0.7rem; }
+    .hero { padding: 7rem 1.2rem 4rem; min-height: auto; }
+    .hero-content { min-height: auto; gap: 2rem; }
+    .hero-visual { 
+      height: auto; 
+      min-height: 0;
+      margin-top: 0.5rem;
+      overflow: visible;
+    }
+    .service-stack {
+      position: relative;
+      inset: auto;
+      gap: 0.8rem;
+    }
+    .service-tile {
+      padding: 1.1rem;
+      gap: 0.8rem;
+    }
+    .service-tile-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+    }
+    .service-tile-content h4 { font-size: 1.05rem; }
+    .service-tile-content p { font-size: 0.78rem; }
+    .trust-row {
+      gap: 0.8rem !important;
+      flex-wrap: wrap;
+      margin-top: 0;
+    }
+    .trust-item { font-size: 0.72rem; }
+    .services, .why-us, .testimonials, .cta-section, .dual-section { padding: 4.5rem 1.2rem; }
+    .cta-box { padding: 3rem 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .stat-box { padding: 1.2rem; }
+    .stat-box .num { font-size: 2rem; }
+    
+    /* CRITICAL: prevent floating buttons from overlapping bottom content */
+    body {
+      padding-bottom: 8rem;
+    }
+    
+    .chatbot-window { 
+      bottom: 0; 
+      right: 0; 
+      left: 0; 
+      top: 0;
+      width: 100vw; 
+      max-width: none; 
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+      border: none;
+    }
+    .chatbot-header { 
+      padding: 1.2rem 1.5rem; 
+      padding-top: max(1.2rem, env(safe-area-inset-top, 1.2rem)); 
+    }
+    .chatbot-close, .chatbot-minimize { 
+      width: 42px; 
+      height: 42px; 
+      font-size: 1.5rem; 
+    }
+    .chatbot-back-link { padding: 1rem 1.2rem; }
+    .chatbot-back-link button { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+    
+    .float-stack { 
+      right: 0.8rem; 
+      bottom: 0.8rem; 
+      gap: 0.7rem; 
+    }
+    .chatbot-tooltip, .phone-tooltip { display: none; }
+    .sticky-phone, .chatbot-toggle { 
+      width: 52px; 
+      height: 52px; 
+      font-size: 1.3rem; 
+    }
+    
+    .ticker { padding: 1rem 0; }
+    .ticker-item { font-size: 1.1rem; letter-spacing: 2px; }
+    .ticker::before, .ticker::after { width: 40px; }
+    .service-card { padding: 2rem 1.5rem; }
+    .testimonial { padding: 1.8rem; }
+    .hero h1 { font-size: clamp(2.5rem, 12vw, 4.5rem); }
+    .hero-desc { font-size: 1rem; }
+    .btn-primary, .btn-secondary { padding: 1rem 1.6rem; font-size: 0.85rem; }
+    .section-title { font-size: clamp(2rem, 8vw, 3rem); }
+    .section-tag { font-size: 0.65rem; padding: 0.4rem 1rem; }
+    .dual-card { padding: 2rem 1.5rem; }
+    .dual-card h3 { font-size: 1.8rem; }
+    .cursor-glow { display: none; }
+    .particle { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .scan-line, .orb, .particle { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mesh-bg"></div>
+
+<div class="orb-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<div class="grid-overlay"></div>
+<div class="scan-line"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav>
+  <div class="logo">
+    <span class="pro">PROT</span><span class="x-wrap"><span class="x">X</span></span><span class="sub">PAINTERS</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="tel:4696501955" class="nav-cta">Free Quote</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Now Booking · DFW
+      </div>
+      <h1>
+        FINISHES<br>
+        BUILT TO<br>
+        <span class="accent">LAST.</span>
+      </h1>
+      <p class="hero-desc">Premium floor coatings, concrete polishing, and exterior painting for residential and commercial properties across Dallas-Fort Worth. Quality you can stand on.</p>
+      <div class="hero-ctas">
+        <a href="tel:4696501955" class="btn-primary">📞 (469) 650-1955</a>
+        <a href="#contact" class="btn-secondary">Free Estimate →</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="check">✓</div>
+          Licensed LLC
+        </div>
+        <div class="trust-item">
+          <div class="check">✓</div>
+          Free Estimates
+        </div>
+        <div class="trust-item">
+          <div class="check">✓</div>
+          DFW Local
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="service-stack">
+        <div class="service-tile">
+          <div class="service-tile-icon">⬛</div>
+          <div class="service-tile-content">
+            <h4>Floor Coatings</h4>
+            <p>Garage floors, basements, commercial spaces</p>
+          </div>
+          <div class="service-tile-arrow">→</div>
+        </div>
+        <div class="service-tile">
+          <div class="service-tile-icon">💎</div>
+          <div class="service-tile-content">
+            <h4>Concrete Polishing</h4>
+            <p>High-gloss commercial & retail floors</p>
+          </div>
+          <div class="service-tile-arrow">→</div>
+        </div>
+        <div class="service-tile">
+          <div class="service-tile-icon">🎨</div>
+          <div class="service-tile-content">
+            <h4>Exterior Painting</h4>
+            <p>Residential & commercial property painting</p>
+          </div>
+          <div class="service-tile-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Floor Coatings</span>
+    <span class="ticker-item">Concrete Polishing</span>
+    <span class="ticker-item">Exterior Painting</span>
+    <span class="ticker-item">Residential</span>
+    <span class="ticker-item">Commercial</span>
+    <span class="ticker-item">DFW Area</span>
+    <span class="ticker-item">Free Quotes</span>
+    <span class="ticker-item">Floor Coatings</span>
+    <span class="ticker-item">Concrete Polishing</span>
+    <span class="ticker-item">Exterior Painting</span>
+    <span class="ticker-item">Residential</span>
+    <span class="ticker-item">Commercial</span>
+    <span class="ticker-item">DFW Area</span>
+    <span class="ticker-item">Free Quotes</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-header">
+    <span class="section-tag">Our Services</span>
+    <h2 class="section-title">What we <span class="accent">do best.</span></h2>
+    <p class="section-sub">Three specialized services. One trusted team. Every project finished with the same commitment to quality.</p>
+  </div>
+  
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⬛</div>
+      <div class="service-num">// 01</div>
+      <h3>Floor Coatings</h3>
+      <p>Heavy-duty floor systems for garages, basements, warehouses, and commercial showrooms. Built to handle traffic, chemicals, and time.</p>
+      <ul class="service-features">
+        <li>Garage floor coatings</li>
+        <li>Commercial epoxy systems</li>
+        <li>Polyaspartic coatings</li>
+        <li>Decorative flake finishes</li>
+      </ul>
+      <a href="tel:4696501955" class="service-link">Get a quote →</a>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <div class="service-num">// 02</div>
+      <h3>Concrete Polishing</h3>
+      <p>High-gloss polished concrete that transforms warehouses, retail stores, and showrooms into premium spaces. Durable, low-maintenance, beautiful.</p>
+      <ul class="service-features">
+        <li>Commercial polished floors</li>
+        <li>Warehouse & industrial</li>
+        <li>Retail & showroom finishes</li>
+        <li>Custom gloss levels</li>
+      </ul>
+      <a href="tel:4696501955" class="service-link">Get a quote →</a>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <div class="service-num">// 03</div>
+      <h3>Exterior Painting</h3>
+      <p>Full exterior painting for homes and commercial buildings. Premium prep, premium paint, premium results that hold up to Texas weather.</p>
+      <ul class="service-features">
+        <li>Residential homes</li>
+        <li>Commercial buildings</li>
+        <li>Power washing & prep</li>
+        <li>Long-lasting finishes</li>
+      </ul>
+      <a href="tel:4696501955" class="service-link">Get a quote →</a>
+    </div>
+  </div>
+</section>
+
+<section class="dual-section">
+  <div class="section-header">
+    <span class="section-tag">Who We Serve</span>
+    <h2 class="section-title">Residential <span class="accent">&</span> Commercial.</h2>
+    <p class="section-sub">Whether it's your dream garage or a 50,000 sqft warehouse — we bring the same precision and care to every project.</p>
+  </div>
+  
+  <div class="dual-grid">
+    <div class="dual-card residential">
+      <span class="dual-tag">For Homeowners</span>
+      <h3>Residential</h3>
+      <p>Transform your garage, basement, or home exterior. From stunning floor coatings to fresh exterior paint — we make your home stand out on the block.</p>
+      <ul class="dual-list">
+        <li>Garage floor transformations</li>
+        <li>Basement floor coatings</li>
+        <li>Full exterior home painting</li>
+        <li>Driveway & patio finishes</li>
+        <li>Free in-home consultation</li>
+      </ul>
+      <a href="tel:4696501955" class="btn-primary">📞 Call (469) 650-1955</a>
+    </div>
+    
+    <div class="dual-card commercial">
+      <span class="dual-tag">For Business Owners</span>
+      <h3>Commercial</h3>
+      <p>Warehouses, retail spaces, showrooms, office buildings. We deliver durable finishes that handle real-world traffic and look great doing it.</p>
+      <ul class="dual-list">
+        <li>Warehouse & industrial floors</li>
+        <li>Retail & showroom polishing</li>
+        <li>Commercial exterior painting</li>
+        <li>Multi-property contracts</li>
+        <li>Off-hours scheduling available</li>
+      </ul>
+      <a href="tel:4696501955" class="btn-primary">📞 Call (469) 650-1955</a>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" id="about">
+  <div class="why-grid">
+    <div class="why-left">
+      <span class="section-tag">Why PROTX</span>
+      <h2>Quality you can <span class="accent">stand on.</span></h2>
+      <p>We don't cut corners. We don't subcontract jobs to whoever's cheapest. We show up, we prep right, and we deliver work we're proud to put our name on. That's why DFW homeowners and business owners keep calling us back.</p>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="num">100%</div>
+          <div class="label">Licensed LLC</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">500+</div>
+          <div class="label">Projects</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">24hr</div>
+          <div class="label">Quote Time</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">5.0★</div>
+          <div class="label">Avg Rating</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="why-right">
+      <div class="why-feature">
+        <div class="num">01</div>
+        <div>
+          <h4>Free On-Site Estimates</h4>
+          <p>We come to you, walk the project, and give you a written quote within 24 hours. No pressure, no surprises.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="num">02</div>
+        <div>
+          <h4>Premium Materials Only</h4>
+          <p>We use top-tier coatings, paints, and equipment because the finish is only as good as what goes into it.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="num">03</div>
+        <div>
+          <h4>Detailed Surface Prep</h4>
+          <p>80% of a great finish is proper prep. We don't skip steps — we grind, clean, and prime before any application.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="num">04</div>
+        <div>
+          <h4>Workmanship Guarantee</h4>
+          <p>We stand behind every job. If something's not right, we make it right. Period.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="section-header">
+    <span class="section-tag">Client Reviews</span>
+    <h2 class="section-title">What our <span class="accent">clients say.</span></h2>
+  </div>
+
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"PROTX coated my garage floor and it looks BETTER than the showroom floors I've seen. Jose was professional, on time, and the work is flawless. Worth every penny."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">M</div>
+        <div>
+          Mike R.
+          <div class="testimonial-loc">Frisco, TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"We hired PROTX to polish our 8,000 sqft warehouse floor. They worked around our schedule, finished ahead of time, and the floors look incredible. Top crew in DFW."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div>
+          Sarah K.
+          <div class="testimonial-loc">Carrollton, TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Got our whole house exterior painted by Jose and his crew. Prep was meticulous, paint quality is excellent, and the price was fair. Already booked them for our rental property."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">R</div>
+        <div>
+          Robert D.
+          <div class="testimonial-loc">Plano, TX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-box">
+    <span class="cta-tag">Ready to Get Started?</span>
+    <h2>Let's quote your<br>project. <span style="opacity:0.85;">It's free.</span></h2>
+    <p>Whether it's a garage floor, polished warehouse, or full exterior repaint — we're a call away. Free estimates within 24 hours.</p>
+    <a href="tel:4696501955" class="btn-cta">📞 Call (469) 650-1955</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="pro">PROT</span><span class="x-wrap"><span class="x">X</span></span><span class="sub">PAINTERS</span>
+      </div>
+      <p>Premium floor coatings, concrete polishing, and exterior painting. Licensed, insured, and locally owned in the DFW area.</p>
+      <a href="tel:4696501955" class="footer-phone">(469) 650-1955</a>
+      <a href="mailto:protxpainterslllc@gmail.com" class="footer-email">protxpainterslllc@gmail.com</a>
+      <div class="footer-social">
+        <a href="https://instagram.com/protxpainters" target="_blank" aria-label="Instagram">📷</a>
+        <a href="https://facebook.com/protxpainters" target="_blank" aria-label="Facebook">f</a>
+        <a href="tel:4696501955" aria-label="Phone">📞</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Floor Coatings</a>
+      <a href="#services">Concrete Polishing</a>
+      <a href="#services">Exterior Painting</a>
+      <a href="#services">Residential</a>
+      <a href="#services">Commercial</a>
+    </div>
+    <div class="footer-col">
+      <h4>Service Area</h4>
+      <a href="#">Dallas</a>
+      <a href="#">Fort Worth</a>
+      <a href="#">Plano</a>
+      <a href="#">Frisco</a>
+      <a href="#">Carrollton</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:4696501955">📞 (469) 650-1955</a>
+      <a href="mailto:protxpainterslllc@gmail.com">📧 Email Us</a>
+      <a href="https://instagram.com/protxpainters" target="_blank">📷 @protxpainters</a>
+      <a href="#">⭐ Leave Review</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ProTX Painters LLC</span>
+    <span>Licensed · Insured · DFW Local</span>
+  </div>
+</footer>
+
+<!-- === FLOATING ACTION STACK (right side) === -->
+<div class="float-stack">
+  <!-- Chatbot on TOP -->
+  <div class="chatbot-wrap">
+    <div class="chatbot-tooltip" id="chatbotTooltip">
+      <button class="tooltip-dismiss" onclick="dismissTooltip('chatbotTooltip', event)" aria-label="Dismiss">×</button>
+      <span onclick="toggleChat()" style="cursor: pointer; display: block;">
+        <strong>Got Questions?</strong>
+        Chat with us 24/7 💬
+      </span>
+    </div>
+    <button class="chatbot-toggle" onclick="toggleChat()" aria-label="Open chat">
+      💬
+      <span class="badge">!</span>
+    </button>
+  </div>
+  
+  <!-- Phone UNDER chatbot -->
+  <div class="phone-wrap">
+    <div class="phone-tooltip" id="phoneTooltip">
+      <button class="tooltip-dismiss" onclick="dismissTooltip('phoneTooltip', event)" aria-label="Dismiss">×</button>
+      <a href="tel:4696501955" style="color: inherit; text-decoration: none; display: block;">
+        <strong>Free Quote in 24hrs</strong>
+        Tap to call (469) 650-1955 📞
+      </a>
+    </div>
+    <a href="tel:4696501955" class="sticky-phone" aria-label="Call us">📞</a>
+  </div>
+</div>
+
+<!-- Backdrop for mobile chatbot -->
+<div class="chatbot-backdrop" id="chatbotBackdrop" onclick="toggleChat()"></div>
+
+<div class="chatbot-window" id="chatWindow">
+  <div class="chatbot-header">
+    <div class="chatbot-avatar">🤖</div>
+    <div>
+      <h4>PROTX Assistant</h4>
+      <span>Online · Replies fast</span>
+    </div>
+    <button class="chatbot-minimize" onclick="toggleChat()" aria-label="Back to website" title="Back to website">−</button>
+    <button class="chatbot-close" onclick="toggleChat()" aria-label="Close chat" title="Close">×</button>
+  </div>
+  <div class="chatbot-messages" id="messages">
+    <div class="bot-msg">👋 Hey there! I'm the PROTX Painters assistant. What project are you thinking about?</div>
+  </div>
+  <div class="quick-replies" id="quickReplies">
+    <button class="quick-reply" onclick="quickReply('Garage floor coating')">Garage floor</button>
+    <button class="quick-reply" onclick="quickReply('Polished concrete')">Polished concrete</button>
+    <button class="quick-reply" onclick="quickReply('Exterior painting')">Exterior painting</button>
+    <button class="quick-reply" onclick="quickReply('How much does it cost?')">Pricing</button>
+    <button class="quick-reply" onclick="quickReply('Call now')">📞 Call</button>
+  </div>
+  <div class="chatbot-input">
+    <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="if(event.key==='Enter')sendMsg()">
+    <button onclick="sendMsg()">→</button>
+  </div>
+  <div class="chatbot-back-link">
+    <button onclick="toggleChat()">← Back to Website</button>
+  </div>
+</div>
+
+<script>
+  // === CURSOR GLOW FOLLOWER ===
+  const cursorGlow = document.getElementById('cursorGlow');
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+  } else {
+    cursorGlow.style.display = 'none';
+  }
+
+  // === CHATBOT ===
+  const chatWindow = document.getElementById('chatWindow');
+  const messages = document.getElementById('messages');
+  const quickReplies = document.getElementById('quickReplies');
+  const chatInput = document.getElementById('chatInput');
+  const chatBackdrop = document.getElementById('chatbotBackdrop');
+
+  function toggleChat() { 
+    const isOpening = !chatWindow.classList.contains('open');
+    chatWindow.classList.toggle('open');
+    
+    // Show/hide backdrop on mobile
+    if (window.innerWidth <= 640) {
+      if (isOpening) {
+        chatBackdrop.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      } else {
+        chatBackdrop.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+    
+    // Hide tooltips after first interaction
+    document.querySelectorAll('.chatbot-tooltip, .phone-tooltip').forEach(t => {
+      t.style.animation = 'none';
+      t.style.opacity = '0.7';
+    });
+  }
+
+  function dismissTooltip(id, event) {
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+    const tooltip = document.getElementById(id);
+    if (tooltip) {
+      tooltip.classList.add('tooltip-hidden');
+    }
+  }
+
+  // ESC key closes chatbot
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatWindow.classList.contains('open')) {
+      toggleChat();
+    }
+  });
+
+  // Auto-dismiss tooltips after 12 seconds
+  setTimeout(() => {
+    const cTip = document.getElementById('chatbotTooltip');
+    const pTip = document.getElementById('phoneTooltip');
+    if (cTip) cTip.classList.add('tooltip-hidden');
+    if (pTip) pTip.classList.add('tooltip-hidden');
+  }, 12000);
+
+  function addMessage(text, isUser) {
+    const div = document.createElement('div');
+    div.className = isUser ? 'user-msg' : 'bot-msg';
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function botReply(text, delay = 800) {
+    setTimeout(() => addMessage(text, false), delay);
+  }
+
+  function quickReply(text) {
+    addMessage(text, true);
+    quickReplies.style.display = 'none';
+    
+    const lower = text.toLowerCase();
+    if (lower.includes('garage') || lower.includes('floor coating')) {
+      botReply("Great choice! Garage floor coatings typically run $1,800-$4,500 depending on size and finish (flake, metallic, solid). Want a free in-home quote? Call (469) 650-1955 — Jose comes out within 24 hours.");
+    } else if (lower.includes('polished') || lower.includes('concrete')) {
+      botReply("Polished concrete is our specialty for warehouses, retail, and showrooms. Pricing depends on square footage, gloss level, and prep work. Call (469) 650-1955 for a free walk-through quote.");
+    } else if (lower.includes('exterior') || lower.includes('painting')) {
+      botReply("We do full exterior painting for homes and commercial buildings. Most homes run $3,500-$8,500 depending on size and prep. Call (469) 650-1955 for a free on-site quote within 24 hours.");
+    } else if (lower.includes('cost') || lower.includes('price') || lower.includes('pricing')) {
+      botReply("Every project is custom-quoted based on size, condition, and finish. We offer FREE on-site estimates with written, itemized pricing — no surprises. Call (469) 650-1955 to schedule.");
+    } else if (lower.includes('call')) {
+      botReply("📞 Tap to call us right now: (469) 650-1955 — or use the phone button on your screen!");
+    } else {
+      botReply("Thanks for reaching out! For the fastest response, give Jose a call at (469) 650-1955 and we'll get you a free quote within 24 hours.");
+    }
+    
+    setTimeout(() => {
+      quickReplies.style.display = 'flex';
+      quickReplies.innerHTML = `
+        <button class="quick-reply" onclick="quickReply('Call now')">📞 Call (469) 650-1955</button>
+        <button class="quick-reply" onclick="quickReply('Get a free quote')">Free quote</button>
+      `;
+    }, 1500);
+  }
+
+  function sendMsg() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    chatInput.value = '';
+    quickReply(text);
+  }
+</script>
+
+</body>
+</html>
